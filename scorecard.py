@@ -20,7 +20,8 @@ def draw_route_box(draw, base_x, base_y, label, points):
 @click.command()
 @click.option('--start-number', default=1, help="First route number")
 @click.option('--end-number', default=100, help="last route number")
-def render(start_number, end_number):
+@click.option('--outfile', '-o', default='scorecard.png', help="Name of the output file")
+def render(start_number, end_number, outfile):
     font = ImageFont.truetype('Hack-Regular.ttf', 14)
     img = Image.new('RGBA', (2501, 2501), (255, 0, 0, 0))
     draw = ImageDraw.Draw(img)
@@ -45,7 +46,8 @@ def render(start_number, end_number):
 
         x1 += 250
         x2 += 250
-    img.save('scorecard.png')
+
+    img.save(outfile)
 
 
 if __name__ == '__main__':
