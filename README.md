@@ -2,8 +2,8 @@ climbing-scorecard
 ===
 
 A simple Python script, that will generate a climbing scorecard used for
-Boulder sessions at [Bouldershabitat](http://www.bouldershabitat.de/) in
-Bonn, Germany.
+Boulder sessions at [Bouldershabitat](http://www.bouldershabitat.de/) and
+the [Bonner Boulderliga](http://bonnerboulderliga.de/) in Bonn, Germany.
 
 Installation
 ---
