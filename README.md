@@ -15,7 +15,16 @@ This scorecard was generated with the following options:
 
 	$ python scorecard.py -r OE 1 -r GB 1 -r GN 2 -r RT 3 -r BU 4 -r GU 5 -r SZ 6 -r PK 3
 
-The route color codes are taken from the [Bonner Boulderliga](http://bonnerboulderliga.de/regeln.html).
+The sample route color codes are taken from the [Bonner Boulderliga](http://bonnerboulderliga.de/regeln.html):
+
+* OE = Orange
+* GB = Yellow
+* GN = Green
+* RT = Red
+* BU = Blue
+* GU = Grey
+* SZ = Black
+* PK = Pink
 
 ## Installation
 
