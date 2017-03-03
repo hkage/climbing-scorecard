@@ -23,3 +23,6 @@ Usage
 	--end-number INTEGER    last route number
 	-o, --outfile TEXT      Name of the output file
 	--help                  Show this message and exit.
+
+
+![Sample output](sample.png)
