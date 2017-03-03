@@ -33,3 +33,5 @@ Usage
 To adjust the route numbers, simply change the parameters `--start-number` and `--end-number`, e.g.:
 
 	$ python scorecard.py --start-number=100 --end-number=200
+
+**Note:** currently only 100 numbers per page are supported.
