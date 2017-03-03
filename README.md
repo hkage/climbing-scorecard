@@ -29,3 +29,7 @@ Usage
 	--end-number INTEGER    last route number
 	-o, --outfile TEXT      Name of the output file
 	--help                  Show this message and exit.
+
+To adjust the route numbers, simply change the parameters `--start-number` and `--end-number`, e.g.:
+
+	$ python scorecard.py --start-number=100 --end-number=200
