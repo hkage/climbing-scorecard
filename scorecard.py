@@ -55,14 +55,12 @@ def render(start_number, end_number, outfile):
         # Add the route number as a text
         draw.text((x1 + 10, y1 + 10), str(x), (0, 0, 0), font=font)
         # Draw the inner boxes
-        color_row = 1
         route_x = x1
         route_y = y1
         for no_color, data in enumerate(ROUTE_COLORS):
             name, points = data
             draw_route_box(draw, route_x, route_y, name, points)
             if (no_color + 1) % COLORS_PER_ROW == 0:
-                color_row += 1
                 route_x = x1
                 route_y += 70
             else:
