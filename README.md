@@ -1,9 +1,9 @@
-climbing-scorecard
-===
+# climbing-scorecard
 
-A simple Python script, that will generate a climbing scorecard used for
-Boulder sessions at [Bouldershabitat](http://www.bouldershabitat.de/) and
-the [Bonner Boulderliga](http://bonnerboulderliga.de/) in Bonn, Germany.
+A simple Python script, that will generate a climbing scorecard image,
+with a range of route numbers and different colors.
+
+## Example
 
 ![Sample output](sample.png)
 
@@ -11,16 +11,20 @@ the [Bonner Boulderliga](http://bonnerboulderliga.de/) in Bonn, Germany.
 * `OE`, `GB`, `GN` etc.: These are the color codes used by the route setters. E.g. `OE` stands for "Orange".
 * `1-6`: These are the points given to the climber, if he succeeded with the route.
 
-Installation
----
+This scorecard was generated with the following options:
+
+	$ python scorecard.py -r OE 1 -r GB 1 -r GN 2 -r RT 3 -r BU 4 -r GU 5 -r SZ 6 -r PK 3
+
+The route color codes are taken from the [Bonner Boulderliga](http://bonnerboulderliga.de/regeln.html).
+
+## Installation
 
 Install the requirements:
 
 	$ pip install -r requirements.txt
 
 
-Usage
----
+## Usage
 
 	Usage: scorecard.py [OPTIONS]
 
@@ -32,6 +36,8 @@ Usage
 	  -o, --outfile TEXT             Name of the output file
 	  --help                         Show this message and exit.
 
+### Route codes
+
 You will have to specify the list of route names and points. They can be added with the
 `-r/--route` argument. Each route consists of a tuple: route name and points. E.g.:
 
@@ -39,6 +45,8 @@ You will have to specify the list of route names and points. They can be added w
 
 This will generate a scorecard for the route number 1 to 100 and with the route colors
 "RT" (3 points) and "BU" (4 points.).
+
+### Route numbers
 
 To adjust the route numbers, simply change the parameters `--start-number` and `--end-number`, e.g.:
 
