@@ -19,6 +19,15 @@ font = ImageFont.truetype('Hack-Regular.ttf', 14)
 
 
 def draw_route_box(draw, base_x, base_y, label, points):
+    """
+    Render a single route.
+
+    :param draw: The :class:`ImageDraw` instance
+    :param int base_x: The base x coordinate for the box
+    :param int base_y: The base y coordinate for the box
+    :param str label: The name or label of the route
+    :param int points: The points for the route
+    """
     # Add the route label
     draw.rectangle(((base_x + 10, base_y + 30), (base_x + 40, base_y + 60)), fill='white', outline='black')
     draw.text((base_x + 17, base_y + 37), label, (0, 0, 0), font=font)
@@ -35,27 +44,22 @@ def draw_route_box(draw, base_x, base_y, label, points):
 @click.option('--end-number', default=100, help="last route number")
 @click.option('--outfile', '-o', default='scorecard.png', help="Name of the output file")
 def render(start_number, end_number, outfile):
-
     img = Image.new('RGBA', (2501, 2501), (255, 0, 0, 0))
     draw = ImageDraw.Draw(img)
     row = 1
     x1, y1 = 0, 0
     x2, y2 = 250, 250
     for x in range(start_number, end_number + 1):
-
         # Draw the outline per route
         draw.rectangle(((x1, y1), (x2, y2)), fill='lightgrey', outline='black')
         # Add the route number as a text
         draw.text((x1 + 10, y1 + 10), str(x), (0, 0, 0), font=font)
-
         # Draw the inner boxes
         color_row = 1
         route_x = x1
         route_y = y1
-
         for no_color, data in enumerate(ROUTE_COLORS):
             name, points = data
-
             draw_route_box(draw, route_x, route_y, name, points)
             if (no_color + 1) % COLORS_PER_ROW == 0:
                 color_row += 1
@@ -63,7 +67,6 @@ def render(start_number, end_number, outfile):
                 route_y += 70
             else:
                 route_x += 70
-
         if x % BOXES_PER_ROW == 0:
             row += 1
             x1 = 0
@@ -73,7 +76,7 @@ def render(start_number, end_number, outfile):
         else:
             x1 += 250
             x2 += 250
-
+    # Save the file
     img.save(outfile)
 
 

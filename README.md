@@ -5,6 +5,8 @@ A simple Python script, that will generate a climbing scorecard used for
 Boulder sessions at [Bouldershabitat](http://www.bouldershabitat.de/) and
 the [Bonner Boulderliga](http://bonnerboulderliga.de/) in Bonn, Germany.
 
+![Sample output](sample.png)
+
 Installation
 ---
 
@@ -23,6 +25,3 @@ Usage
 	--end-number INTEGER    last route number
 	-o, --outfile TEXT      Name of the output file
 	--help                  Show this message and exit.
-
-
-![Sample output](sample.png)
