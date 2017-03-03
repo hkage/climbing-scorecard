@@ -1,21 +1,16 @@
 import click
+from click.exceptions import BadParameter
 from PIL import Image, ImageDraw, ImageFont
 
-
-ROUTE_COLORS = (
-    ('OE', 1),
-    ('GB', 1),
-    ('GN', 2),
-    ('RT', 3),
-    ('BU', 4),
-    ('GU', 5),
-    ('SZ', 6),
-    ('PK', 3))
 
 BOXES_PER_ROW = 10
 COLORS_PER_ROW = 3
 
 font = ImageFont.truetype('fonts/RobotoMono-Regular.ttf', 14)
+
+
+class ValidationError(Exception):
+    """"""
 
 
 def draw_route_box(draw, base_x, base_y, label, points):
@@ -39,11 +34,33 @@ def draw_route_box(draw, base_x, base_y, label, points):
     draw.rectangle(((base_x + 40, base_y + 60), (base_x + 70, base_y + 90)), fill='white', outline='black')
 
 
+def validate_routes(ctx, param, value):
+    """
+    Validate the route options.
+
+    :param ctx: click Context
+    :param param: click option
+    :param value: The value to validate, in this case the route tuples.
+    :raise BadParameter: If the validation fails.
+    """
+    if not value:
+        raise BadParameter("Define at least one route.")
+    for name, points in value:
+        if points > 9 or points < 1:
+            raise BadParameter("Route points must be 1-9, not {}.".format(points))
+        if len(name) > 3:
+            raise BadParameter("Route names have to consist of 1-3 characters, not {}.".format(len(name)))
+    return value
+
+
 @click.command()
-@click.option('--start-number', default=1, help="First route number")
-@click.option('--end-number', default=100, help="last route number")
+@click.option('--route', '-r', type=(unicode, int), multiple=True,
+              callback=validate_routes,
+              help="One or many route definitions, defined as tuples, e.g. -r RT 3 -r BU 4")
+@click.option('--start-number', default=1, help="Starting range for route numbers.")
+@click.option('--end-number', default=100, help="End range for route numbers.")
 @click.option('--outfile', '-o', default='scorecard.png', help="Name of the output file")
-def render(start_number, end_number, outfile):
+def render(route, start_number, end_number, outfile):
     img = Image.new('RGBA', (2501, 2501), (255, 0, 0, 0))
     draw = ImageDraw.Draw(img)
     row = 1
@@ -57,7 +74,7 @@ def render(start_number, end_number, outfile):
         # Draw the inner boxes
         route_x = x1 + 5
         route_y = y1 + 5
-        for no_color, data in enumerate(ROUTE_COLORS):
+        for no_color, data in enumerate(route):
             name, points = data
             draw_route_box(draw, route_x, route_y, name, points)
             if (no_color + 1) % COLORS_PER_ROW == 0:

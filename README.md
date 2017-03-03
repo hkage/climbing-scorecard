@@ -25,10 +25,20 @@ Usage
 	Usage: scorecard.py [OPTIONS]
 
 	Options:
-	--start-number INTEGER  First route number
-	--end-number INTEGER    last route number
-	-o, --outfile TEXT      Name of the output file
-	--help                  Show this message and exit.
+	  -r, --route <TEXT INTEGER>...  One or many route definitions, defined as
+	                                 tuples, e.g. -r RT 3 -r BU 4
+	  --start-number INTEGER         Starting range for route numbers.
+	  --end-number INTEGER           End range for route numbers.
+	  -o, --outfile TEXT             Name of the output file
+	  --help                         Show this message and exit.
+
+You will have to specify the list of route names and points. They can be added with the
+`-r/--route` argument. Each route consists of a tuple: route name and points. E.g.:
+
+	$ python scorecard.py -r RT 3 -r BU 4
+
+This will generate a scorecard for the route number 1 to 100 and with the route colors
+"RT" (3 points) and "BU" (4 points.).
 
 To adjust the route numbers, simply change the parameters `--start-number` and `--end-number`, e.g.:
 
