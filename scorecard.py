@@ -15,7 +15,7 @@ ROUTE_COLORS = (
 BOXES_PER_ROW = 10
 COLORS_PER_ROW = 3
 
-font = ImageFont.truetype('Hack-Regular.ttf', 14)
+font = ImageFont.truetype('fonts/RobotoMono-Regular.ttf', 14)
 
 
 def draw_route_box(draw, base_x, base_y, label, points):
