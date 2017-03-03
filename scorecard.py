@@ -9,10 +9,6 @@ COLORS_PER_ROW = 3
 font = ImageFont.truetype('fonts/RobotoMono-Regular.ttf', 14)
 
 
-class ValidationError(Exception):
-    """"""
-
-
 def draw_route_box(draw, base_x, base_y, label, points):
     """
     Render a single route.
