@@ -7,6 +7,10 @@ the [Bonner Boulderliga](http://bonnerboulderliga.de/) in Bonn, Germany.
 
 ![Sample output](sample.png)
 
+* `1-100`: Stands for the route number, given by the route setters
+* `OE`, `GB`, `GN` etc.: These are the color codes used by the route setters. E.g. `OE` stands for "Orange".
+* `1-6`: These are the points given to the climber, if he succeeded with the route.
+
 Installation
 ---
 
