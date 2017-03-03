@@ -55,10 +55,12 @@ You will have to specify the list of route names and points. They can be added w
 This will generate a scorecard for the route number 1 to 100 and with the route colors
 "RT" (3 points) and "BU" (4 points.).
 
+**Note:** currently only 1-9 route colors are supported.
+
 ### Route numbers
 
 To adjust the route numbers, simply change the parameters `--start-number` and `--end-number`, e.g.:
 
 	$ python scorecard.py -r ... --start-number=100 --end-number=200
 
-**Note:** currently only 100 numbers per page are supported.
+**Note:** currently only up to 100 numbers per page are supported.

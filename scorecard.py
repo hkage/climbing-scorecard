@@ -41,6 +41,8 @@ def validate_routes(ctx, param, value):
     """
     if not value:
         raise BadParameter("Define at least one route.")
+    if len(value) > 9:
+        raise BadParameter("Currently only 1-9 route colors are supported, not {}.".format(len(value)))
     for name, points in value:
         if points > 9 or points < 1:
             raise BadParameter("Route points must be 1-9, not {}.".format(points))
