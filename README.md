@@ -1,6 +1,6 @@
 # climbing-scorecard
 
-A simple Python script, that will generate a climbing scorecard image,
+A simple Python script that will generate a climbing scorecard image,
 with a range of route numbers and different colors.
 
 ## Example
